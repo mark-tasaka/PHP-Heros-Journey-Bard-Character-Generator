@@ -1,0 +1,482 @@
+/* html rules
+--------------------*/
+
+
+body{
+	font-family: sans-serif;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+
+/* id rules
+--------------------*/
+#character_sheet{
+    width: 950px;
+    height: auto;
+	display: block;
+}
+
+
+/*MCC Sentinel Generator Version 3 post data css*/
+
+#characterName{
+    position:absolute;
+    top: 100px;
+    left: 55px;
+	font-size: 0.8em;
+}
+
+#gender{
+    position:absolute;
+    top: 100px;
+    left: 275px;
+	font-size: 0.8em;
+}
+
+
+#lineage{
+    position:absolute;
+    top: 100px;
+    left: 355px;
+	font-size: 0.8em;
+}
+
+
+#alignment{
+    position:absolute;
+    top: 185px;
+    left: 445px;
+	font-size: 0.8em;
+}
+
+#title{
+    position:absolute;
+    top: 185px;
+    left: 260px;
+	font-size: 0.8em;
+}
+
+
+#playerName{
+    position:absolute;
+    top: 165px;
+    left: 370px;
+	font-size: 0.8em;
+}
+
+
+#armourName{
+    position:absolute;
+    top: 805px;
+    left: 375px;
+    font-size: 0.8em;
+    width: 250px;
+}
+
+
+#weaponsList{
+    position:absolute;
+    top: 900px;
+    left: 365px;
+	font-size: 0.65em;
+}
+
+#weaponsList2{
+    position:absolute;
+    top: 900px;
+    left: 585px;
+	font-size: 0.65em;
+}
+
+
+
+#totalArmourClassMod{
+    position:absolute;
+    top: 855px;
+    left: 850px;
+	font-size: 0.8em;
+}
+
+#totalArmourWeight{
+    position:absolute;
+    top: 820px;
+    left: 305px;
+	font-size: 0.5em;
+}
+
+#gearWeight{
+    position:absolute;
+    top: 832px;
+    left: 485px;
+	font-size: 0.5em;
+}
+
+
+
+#weaponNotes{
+    position:absolute;
+    top: 1143px;
+    left: 610px;
+	font-size: 0.4em;
+}
+
+
+#gearList{
+    position:absolute;
+    top: 1015px;
+    left: 50px;
+    font-size: 0.6em;
+    width: 250px;
+}
+
+#abilityScoreGeneration{
+    position:absolute;
+    top: 1145px;
+    left: 685px;
+    font-size: 0.5em;
+    width: 225px;
+}
+
+
+
+#luckyWeapon{
+    position:absolute;
+    top: 650px;
+    left: 450px;
+	font-size: 1em;
+}
+
+
+#baseAC{
+    position:absolute;
+    top: 320px;
+    left: 230px;
+	font-size: 1.4em;
+}
+
+
+#trainedWeapon{
+    position:absolute;
+    top: 1085px;
+    left: 450px;
+	font-size: 0.6em;
+}
+
+
+#tradeGoods{
+    position:absolute;
+    top: 1105px;
+    left: 450px;
+	font-size: 0.6em;
+}
+
+
+
+#level{
+    position:absolute;
+    top: 165px;
+    left: 80px;
+	font-size: 0.8em;
+}
+
+
+
+#strength{
+    position:absolute;
+    top: 493px;
+    left: 210px;
+	font-size: 1.3em;
+}
+
+
+#strengthMod{
+    position:absolute;
+    top: 493px;
+    left: 270px;
+	font-size: 1.3em;
+}
+
+
+#agility{
+    position:absolute;
+    top: 538px;
+    left: 210px;
+	font-size: 1.3em;
+}
+
+#agilityMod{
+    position:absolute;
+    top: 538px;
+    left: 270px;
+	font-size: 1.3em;
+}
+
+
+
+#stamina{
+    position:absolute;
+    top: 583px;
+    left: 210px;
+	font-size: 1.3em;
+}
+
+#staminaMod{
+    position:absolute;
+    top: 583px;
+    left: 270px;
+	font-size: 1.3em;
+}
+
+
+#personality{
+    position:absolute;
+    top: 628px;
+    left: 210px;
+	font-size: 1.3em;
+}
+
+#personalityMod{
+    position:absolute;
+    top: 628px;
+    left: 270px;
+	font-size: 1.3em;
+}
+
+
+#intelligence{
+    position:absolute;
+    top: 673px;
+    left: 210px;
+	font-size: 1.3em;
+}
+
+#intelligenceMod{
+    position:absolute;
+    top: 673px;
+    left: 270px;
+	font-size: 1.3em;
+}
+
+#luck{
+    position:absolute;
+    top: 716px;
+    left: 210px;
+	font-size: 1.3em;
+}
+
+
+#luckMod{
+    position:absolute;
+    top: 716px;
+    left: 270px;
+	font-size: 1.3em;
+}
+
+
+#class{
+    position:absolute;
+    top: 165px;
+    left: 145px;
+	font-size: 0.8em;
+}
+
+
+#speed{
+    position:absolute;
+    top: 395px;
+    left: 813px;
+    font-size: 1.1em;
+    color: white;
+}
+
+
+#profession{
+    position:absolute;
+    top: 125px;
+    left: 400px;
+	font-size: 0.8em;
+}
+
+#xpNextLevel{
+    position:absolute;
+    top: 520px;
+    left: 570px;
+	font-size: 0.8em;
+}
+
+
+#armourClass{
+    position:absolute;
+    top: 320px;
+    left: 170px;
+	font-size: 1.4em;
+}
+
+#armourACBonus{
+    position:absolute;
+    top: 845px;
+    left: 435px;
+	font-size: 0.8em;
+}
+
+
+#fumbleDie{
+    position:absolute;
+    top: 845px;
+    left: 570px;
+	font-size: 0.8em;
+}
+
+#hitPoints{
+    position:absolute;
+    top: 405px;
+    left: 265px;
+	font-size: 1.1em;
+}
+
+#reflex{
+    position:absolute;
+    top: 310px;
+    left: 765px;
+    font-size: 1.1em;
+    color: white;
+}
+
+#fort{
+    position:absolute;
+    top: 330px;
+    left: 710px;
+    font-size: 1.1em;
+}
+
+#will{
+    position:absolute;
+    top: 330px;
+    left: 810px;
+    font-size: 1.1em;
+}
+
+
+
+#maxTech{
+    position:absolute;
+    top: 405px;
+    left: 770px;
+    font-size: 1.2em;
+}
+
+
+#artifactCheck{
+    position:absolute;
+    top: 510px;
+    left: 665px;
+    font-size: 1.2em;
+}
+
+#artifactCheckBonusDie
+{
+    position:absolute;
+    top: 510px;
+    left: 820px;
+    font-size: 1.2em;
+}
+
+#criticalDieTable{
+    position:absolute;
+    top: 250px;
+    left: 90px;
+    font-size: 0.8em;
+}
+
+#deedDie{
+    position:absolute;
+    top: 370px;
+    left: 470px;
+    font-size: 0.9em;
+}
+
+#initiative{
+    position:absolute;
+    top: 395px;
+    left: 710px;
+    font-size: 1.1em;
+    color: white;
+}
+
+#actionDice{
+    position:absolute;
+    top: 250px;
+    left: 220px;
+    font-size: 0.8em;
+}
+
+#threatRange{
+    position:absolute;
+    top: 380px;
+    left: 607px;
+	font-size: 0.75em;
+}
+
+#birthAugur{
+    position:absolute;
+    top: 360px;
+    left: 380px;
+    font-size: 0.8em;
+    width: 240px;
+}
+
+#languages{
+    position:absolute;
+    top: 810px;
+    left: 50px;
+    font-size: 0.8em;
+    width: 260px;
+}
+
+
+#melee{
+    position:absolute;
+    top: 250px;
+    left: 515px;
+	font-size: 1.2em;
+}
+
+
+#range{
+    position:absolute;
+    top: 292px;
+    left: 515px;
+	font-size: 1.2em;
+}
+
+
+
+#meleeDamage{
+    position:absolute;
+    top: 250px;
+    left: 600px;
+	font-size: 1.2em;
+}
+
+
+#rangeDamage{
+    position:absolute;
+    top: 292px;
+    left: 600px;
+	font-size: 1.2em;
+}
+
+
+
+
+
+
+#dieRollMethod{
+    position: absolute;
+    top: 100px;
+    left:  50px;
+	font-size: 0.5em;
+}
+
+

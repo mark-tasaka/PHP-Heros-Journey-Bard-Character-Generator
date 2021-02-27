@@ -73,61 +73,27 @@
         
         } 
 
-        $xpNextLevel = getXPNextLevel ($level);
-        
-        if(isset($_POST["theAbilityScore"]))
-        {
-            $abilityScoreGen = $_POST["theAbilityScore"];
-        
-        }
-
         $abilityScoreArray = array();
-        
-/*
-        for($i = 0; $i < 6; ++$i)
-        {
-            $abilityScore = rollAbilityScores ($abilityScoreGen);
+        $abilityScoreArray = getAbilityScores($lineageNumber);
 
-            array_push($abilityScoreArray, $abilityScore);
+        $might = $abilityScoreArray[0];
+        $finesse = $abilityScoreArray[1];
+        $resolve = $abilityScoreArray[2];
+        $insight = $abilityScoreArray[3];
+        $bearing = $abilityScoreArray[4];
+        $weal = $abilityScoreArray[5];
 
-        }
+        $mightMod = getAbilityScoreModString($might);
+        $finesseMod = getAbilityScoreModString($finesse);
+        $resolveMod = getAbilityScoreModString($resolve);
+        $insightMod = getAbilityScoreModString($insight);
+        $bearingMod = getAbilityScoreModString($bearing);
+        $wealMod = getAbilityScoreModString($weal);
 
-        if(isset($_POST['theOptimizeAbilityScore']) && $_POST['theOptimizeAbilityScore'] == 1) 
-        {
-            rsort($abilityScoreArray);
 
-            $strengthBase = $abilityScoreArray[0];
-            $agility = $abilityScoreArray[2];
-            $stamina = $abilityScoreArray[1];
-            $personality = $abilityScoreArray[4];
-            $intelligence = $abilityScoreArray[5];
-            $luck = $abilityScoreArray[3];
+        $xpNextLevel = getXPNextLevel ($level);
 
-            $optimizeAbilityScoreMessage = "Ability Scores optimized in the order of Str, Sta, Agi, Luck, Per, Int.";
-        }
-        else
-        {
-            $strength = $abilityScoreArray[0];
-            $agility = $abilityScoreArray[1];
-            $stamina = $abilityScoreArray[2];
-            $personality = $abilityScoreArray[3];
-            $intelligence = $abilityScoreArray[4];
-            $luck = $abilityScoreArray[5];
-            
-            $optimizeAbilityScoreMessage = "";
-        } 
 
-       // $strength = $strengthBonusFromArtifact + $strengthBase;
-
-        $strengthMod = getStrengthModifier($strength);
-        $agilityMod = getAbilityModifier($agility);
-        $staminaMod = getAbilityModifier($stamina);
-        $personalityMod = getAbilityModifier($personality);
-        $intelligenceMod = getAbilityModifier($intelligence);
-        $luckMod = getAbilityModifier($luck);
-    
-        $generationMessage = generationMesssage ($abilityScoreGen);
-    */
         if(isset($_POST["theArmour"]))
         {
             $armour = $_POST["theArmour"];
@@ -151,23 +117,8 @@
             $shieldFumbleDie = getArmour(8)[2];
         } 
 
-     //  $totalAcDefense = $armourACBonus + $shieldACBonus + $totalArtifactAC;
-
-       $speed = 30;
-
-       $reflexBase = savingThrowReflex($level);
-       $fortBase = savingThrowFort($level);
-       $willBase = savingThrowWill($level);
-
-       $criticalDie = criticalDie($level);
 
 
-       $actionDice = actionDice($level);
-
-
-       $title = title($level);
-
-         
         $weaponArray = array();
         $weaponNames = array();
         $weaponDamage = array();
@@ -260,7 +211,7 @@
             array_push($gearNames, getGear($select)[0]);
         }
 
-    $profession = getProfession();
+    $profession = getProfession($lineageNumber);
 
     
     
@@ -272,22 +223,69 @@
   <img id="character_sheet"/>
    <section>
        
-           
-		<span id="strength"></span>
-		<span id="agility"></span> 
-		<span id="stamina"></span> 
-		<span id="intelligence"></span>
-		<span id="personality"></span>
-       <span id="luck"></span>
+
+		<span id="might">
+           <?php
+           echo $might;
+           ?>
+           </span>
+
+		<span id="finesse">
+           <?php
+           echo $finesse;
+           ?></span> 
+
+		<span id="resolve">
+           <?php
+           echo $resolve;
+           ?></span> 
+
+		<span id="insight">
+           <?php
+           echo $insight;
+           ?></span>
+
+		<span id="bearing">
+           <?php
+           echo $bearing;
+           ?></span>
+
+       <span id="weal">
+           <?php
+           echo $weal;
+           ?></span>
        
        
-           
-		<span id="strengthMod"></span>
-		<span id="agilityMod"></span> 
-		<span id="staminaMod"></span> 
-		<span id="intelligenceMod"></span>
-		<span id="personalityMod"></span>
-       <span id="luckMod"></span>
+       <span id="mightMod">
+           <?php
+           echo $mightMod;
+           ?>
+           </span>
+
+		<span id="finesseMod">
+           <?php
+           echo $finesseMod;
+           ?></span> 
+
+		<span id="resolveMod">
+           <?php
+           echo $resolveMod;
+           ?></span> 
+
+		<span id="insightMod">
+           <?php
+           echo $insightMod;
+           ?></span>
+
+		<span id="bearingMod">
+           <?php
+           echo $bearingMod;
+           ?></span>
+
+       <span id="wealMod">
+           <?php
+           echo $wealMod;
+           ?></span>
 
        <span id="reflex"></span>
        <span id="fort"></span>
@@ -311,7 +309,6 @@
 
 
 
-        <span id="maxTech"></span>
 
        
        <span id="class">Bard</span>
@@ -323,6 +320,7 @@
        <span id="hitPoints"></span>
 
        <span id="languages"></span>
+
        <span id="level">
            <?php
                 echo $level;
@@ -350,8 +348,6 @@
         </span>
        
        
-              
-        <span id="speed"></span>
 
 
 
@@ -389,32 +385,12 @@
             ?>
         </span>
 
-        <span id="criticalDieTable">
-            <?php
-                echo $criticalDie;
-            ?>
-        </span>
+ 
         
         <span id="initiative">
         </span>
         
-        <span id="actionDice">
-            <?php
-                echo $actionDice;
-            ?>
-        </span>
 
-        
-        <span id="title">
-            <?php
-                echo $title;
-            ?>
-        </span>
-
-
-
-        
-		<p id="birthAugur"><span id="luckySign"></span>: <span id="luckyRoll"></span> (<span id="LuckySignBonus"></span>)</p>
 
         
         <span id="melee"></span>

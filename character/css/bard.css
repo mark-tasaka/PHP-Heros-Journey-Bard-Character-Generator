@@ -182,94 +182,92 @@ body{
 
 
 
-#strength{
+#might{
     position:absolute;
-    top: 493px;
-    left: 210px;
+    top: 415px;
+    left: 240px;
 	font-size: 1.3em;
 }
 
 
-#strengthMod{
+#mightMod{
     position:absolute;
-    top: 493px;
-    left: 270px;
+    top: 415px;
+    left: 305px;
 	font-size: 1.3em;
 }
 
 
-#agility{
+#finesse{
     position:absolute;
-    top: 538px;
-    left: 210px;
+    top: 455px;
+    left: 240px;
 	font-size: 1.3em;
 }
 
-#agilityMod{
+#finesseMod{
     position:absolute;
-    top: 538px;
-    left: 270px;
+    top: 455px;
+    left: 305px;
 	font-size: 1.3em;
 }
 
-
-
-#stamina{
+#resolve{
     position:absolute;
-    top: 583px;
-    left: 210px;
+    top: 495px;
+    left: 240px;
 	font-size: 1.3em;
 }
 
-#staminaMod{
+#resolveMod{
     position:absolute;
-    top: 583px;
-    left: 270px;
-	font-size: 1.3em;
-}
-
-
-#personality{
-    position:absolute;
-    top: 628px;
-    left: 210px;
-	font-size: 1.3em;
-}
-
-#personalityMod{
-    position:absolute;
-    top: 628px;
-    left: 270px;
+    top: 495px;
+    left: 305px;
 	font-size: 1.3em;
 }
 
 
-#intelligence{
+#insight{
     position:absolute;
-    top: 673px;
-    left: 210px;
+    top: 535px;
+    left: 240px;
 	font-size: 1.3em;
 }
 
-#intelligenceMod{
+#insightMod{
     position:absolute;
-    top: 673px;
-    left: 270px;
-	font-size: 1.3em;
-}
-
-#luck{
-    position:absolute;
-    top: 716px;
-    left: 210px;
+    top: 535px;
+    left: 305px;
 	font-size: 1.3em;
 }
 
 
-#luckMod{
+#bearing{
     position:absolute;
-    top: 716px;
-    left: 270px;
+    top: 575px;
+    left: 240px;
+	font-size: 1.3em;
+}
+
+#bearingMod{
+    position:absolute;
+    top: 575px;
+    left: 305px;
+	font-size: 1.3em;
+}
+
+#weal{
+    position:absolute;
+    top: 615px;
+    left: 240px;
+	font-size: 1.3em;
+}
+
+
+#wealMod{
+    position:absolute;
+    top: 615px;
+    left: 305px;
 	font-size: 1.3em;
 }
 
@@ -293,8 +291,8 @@ body{
 
 #profession{
     position:absolute;
-    top: 125px;
-    left: 400px;
+    top: 100px;
+    left: 490px;
 	font-size: 0.8em;
 }
 

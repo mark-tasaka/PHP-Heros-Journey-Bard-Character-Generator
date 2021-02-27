@@ -142,38 +142,6 @@ function criticalDie($level)
 }
 
 
-function title($level)
-{
-
-        if($level == 1)
-        {
-            $title = "Recruit";
-        }
-        else if($level == 2)
-        {
-            $title = "Trooper";
-        }
-        else if($level == 3)
-        {
-            $title = "Specialist";
-        }
-        else if($level == 4)
-        {
-            $title = "Commander";
-        }
-        else if($level == 5)
-        {
-            $title = "Sentinel";
-        }
-        else
-        {
-            $title = "Sentinel Supreme";
-        }
-
-return $title;
-
-}
-
 function getArtifactCheckBonus($level)
 {
     $bonus = 0;

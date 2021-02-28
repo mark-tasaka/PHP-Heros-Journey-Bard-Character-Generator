@@ -68,12 +68,24 @@ body{
 
 #armourName{
     position:absolute;
-    top: 805px;
-    left: 375px;
+    top: 501px;
+    left: 525px;
     font-size: 0.8em;
-    width: 250px;
 }
 
+#armourReduction{
+    position:absolute;
+    top: 522px;
+    left: 550px;
+    font-size: 0.8em;
+}
+
+#armourWeight{
+    position:absolute;
+    top: 522px;
+    left: 635px;
+    font-size: 0.8em;
+}
 
 #weaponsList{
     position:absolute;
@@ -298,8 +310,8 @@ body{
 
 #xpNextLevel{
     position:absolute;
-    top: 520px;
-    left: 570px;
+    top: 210px;
+    left: 580px;
 	font-size: 0.8em;
 }
 
@@ -326,110 +338,34 @@ body{
 	font-size: 0.8em;
 }
 
-#hitPoints{
+#endurance{
     position:absolute;
-    top: 405px;
-    left: 265px;
+    top: 290px;
+    left: 355px;
 	font-size: 1.1em;
 }
 
-#reflex{
+
+#attackBonus{
     position:absolute;
-    top: 310px;
-    left: 765px;
-    font-size: 1.1em;
-    color: white;
+    top: 338px;
+    left: 370px;
+	font-size: 1.1em;
 }
 
-#fort{
+#saveThrow{
     position:absolute;
-    top: 330px;
-    left: 710px;
-    font-size: 1.1em;
-}
-
-#will{
-    position:absolute;
-    top: 330px;
-    left: 810px;
-    font-size: 1.1em;
+    top: 325px;
+    left: 160px;
+	font-size: 1.2em;
 }
 
 
-
-#maxTech{
+#reduction{
     position:absolute;
-    top: 405px;
-    left: 770px;
-    font-size: 1.2em;
-}
-
-
-#artifactCheck{
-    position:absolute;
-    top: 510px;
-    left: 665px;
-    font-size: 1.2em;
-}
-
-#artifactCheckBonusDie
-{
-    position:absolute;
-    top: 510px;
-    left: 820px;
-    font-size: 1.2em;
-}
-
-#criticalDieTable{
-    position:absolute;
-    top: 250px;
-    left: 90px;
-    font-size: 0.8em;
-}
-
-#deedDie{
-    position:absolute;
-    top: 370px;
-    left: 470px;
-    font-size: 0.9em;
-}
-
-#initiative{
-    position:absolute;
-    top: 395px;
-    left: 710px;
-    font-size: 1.1em;
-    color: white;
-}
-
-#actionDice{
-    position:absolute;
-    top: 250px;
-    left: 220px;
-    font-size: 0.8em;
-}
-
-#threatRange{
-    position:absolute;
-    top: 380px;
-    left: 607px;
-	font-size: 0.75em;
-}
-
-#birthAugur{
-    position:absolute;
-    top: 360px;
-    left: 380px;
-    font-size: 0.8em;
-    width: 240px;
-}
-
-#languages{
-    position:absolute;
-    top: 810px;
-    left: 50px;
-    font-size: 0.8em;
-    width: 260px;
+    top: 325px;
+    left: 110px;
+	font-size: 1.2em;
 }
 
 
@@ -464,17 +400,4 @@ body{
     left: 600px;
 	font-size: 1.2em;
 }
-
-
-
-
-
-
-#dieRollMethod{
-    position: absolute;
-    top: 100px;
-    left:  50px;
-	font-size: 0.5em;
-}
-
 

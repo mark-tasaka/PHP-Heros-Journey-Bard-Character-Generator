@@ -1,5 +1,7 @@
 <?php
 
+//Bard
+
 function getXPNextLevel ($level)
 {
     $xpNext = "";
@@ -8,39 +10,39 @@ function getXPNextLevel ($level)
     switch ($level) 
     {
         case "1":
-            $xpNext = "50";
+            $xpNext = "1,250";
           break;
 
         case "2":
-            $xpNext = "110";
+            $xpNext = "2,500";
         break;
         
         case "3":
-            $xpNext = "190";
+            $xpNext = "5,000";
         break;
         
         case "4":
-            $xpNext = "290";
+            $xpNext = "10,000";
         break;
         
         case "5":
-            $xpNext = "410";
+            $xpNext = "20,000";
         break;
         
         case "6":
-            $xpNext = "550";
+            $xpNext = "40,000";
         break;        
 
         case "7":
-            $xpNext = "710";
+            $xpNext = "80,000";
         break;
                 
         case "8":
-            $xpNext = "890";
+            $xpNext = "160,000";
         break;
                 
         case "9":
-            $xpNext = "1090";
+            $xpNext = "320,000";
         break;
                 
         case "10":

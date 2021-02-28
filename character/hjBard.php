@@ -32,6 +32,7 @@
     include 'php/xp.php';
     include 'php/profession.php';
     include 'php/lineage.php';
+    include 'php/archetype.php';
     
 
         if(isset($_POST["theCharacterName"]))
@@ -93,6 +94,12 @@
 
         $xpNextLevel = getXPNextLevel ($level);
 
+        $endurance = getEndurance($level, $resolveMod);
+
+        $attackBonus = getAttackBonus($level);
+
+        $saveThrow = getSavingThrow($level);
+
 
         if(isset($_POST["theArmour"]))
         {
@@ -101,21 +108,12 @@
 
         $armourName = getArmour($armour)[0];
         
-        $armourACBonus = getArmour($armour)[1];
-        $armourFumbleDie = getArmour($armour)[2];
+        $armourReduction = getArmour($armour)[1];
+        $armourWeight = getArmour($armour)[2];
 
-        if(isset($_POST['theCheckBoxShield']) && $_POST['theCheckBoxShield'] == 1) 
-        {
-            $shieldName = getArmour(7)[0];
-            $shieldACBonus = getArmour(7)[1];
-            $shieldFumbleDie = getArmour(7)[2];
-        }
-        else
-        {
-            $shieldName = getArmour(8)[0];
-            $shieldACBonus = getArmour(8)[1];
-            $shieldFumbleDie = getArmour(8)[2];
-        } 
+        $lineageReduction = lineageReduction($lineageNumber);
+
+        $reduction = $armourReduction + $lineageReduction;
 
 
 
@@ -287,10 +285,6 @@
            echo $wealMod;
            ?></span>
 
-       <span id="reflex"></span>
-       <span id="fort"></span>
-       <span id="will"></span>
-
        <span id="lineage">
        <?php
        echo $lineage;
@@ -332,6 +326,34 @@
                 echo $xpNextLevel;
            ?>
         </span>
+        
+        
+       <span id="endurance">
+           <?php
+                echo $endurance;
+           ?>
+        </span>
+
+        
+       <span id="reduction">
+           <?php
+                echo $reduction;
+           ?>
+        </span>
+
+        
+       <span id="attackBonus">
+           <?php
+                echo '+' . $attackBonus;
+           ?>
+        </span>
+        
+        
+        <span id="saveThrow">
+            <?php
+                 echo $saveThrow;
+            ?>
+         </span>
 
        
        <span id="characterName">
@@ -354,6 +376,8 @@
               
        <span id="armourName">
            <?php
+                echo $armourName;
+           /*
            if($armourName == "")
            {
                echo $shieldName;
@@ -365,24 +389,20 @@
            else
            {
             echo $armourName . " & " . $shieldName;
-           }
+           }*/
            ?>
         </span>
 
-
-
-
-        <span id="fumbleDie">
-            <?php
-            if($armourName == "")
-            {
-                echo $shieldFumbleDie;
-            }
-            else
-            {
-                echo $armourFumbleDie;
-            }
-            ?>
+        <span id="armourReduction">
+           <?php
+                echo $armourReduction;
+           ?>
+        </span>
+        
+        <span id="armourWeight">
+           <?php
+                echo $armourWeight . ' lb';
+           ?>
         </span>
 
  

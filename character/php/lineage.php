@@ -1,18 +1,8 @@
 <?php
 
-/*
-		   <span class="formIputDescription">Lineage:</span>	
-			  <select id="lineageV3" name="theLineage" class="alignmentBox">	
-				<option value="0" selected>Human</option>
-				<option value="1">Changeling</option>
-				<option value="2">Dwarf</option>
-				<option value="3">Elf</option>
-				<option value="4">Half-Elf</option>
-				<option value="5">Halfling</option>
-        </select>*/
 
-        function getLineage($input)
-        {
+function getLineage($input)
+{
             $lineage = "";
 
             switch($input)
@@ -47,6 +37,21 @@
             }
 
             return $lineage;
-        }
+}
+
+function lineageReduction($lineage)
+{
+    if($lineage == 2)
+    {
+        $reduction = 1;
+    }
+    else
+    {
+        $reduction = 0;
+    }
+
+    return $reduction;
+
+}
 
 ?>

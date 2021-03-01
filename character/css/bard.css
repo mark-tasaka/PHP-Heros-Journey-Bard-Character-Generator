@@ -87,6 +87,29 @@ body{
     font-size: 0.8em;
 }
 
+
+#shieldName{
+    position:absolute;
+    top: 501px;
+    left: 795px;
+    font-size: 0.8em;
+}
+
+#shieldDefense{
+    position:absolute;
+    top: 522px;
+    left: 822px;
+    font-size: 0.8em;
+}
+
+#shieldWeight{
+    position:absolute;
+    top: 522px;
+    left: 900px;
+    font-size: 0.8em;
+}
+
+
 #weaponsList{
     position:absolute;
     top: 900px;
@@ -136,10 +159,10 @@ body{
 
 #gearList{
     position:absolute;
-    top: 1015px;
-    left: 50px;
-    font-size: 0.6em;
-    width: 250px;
+    top: 610px;
+    left: 430px;
+    font-size: 0.65em;
+    width: 490px;
 }
 
 #abilityScoreGeneration{
@@ -360,6 +383,13 @@ body{
 	font-size: 1.2em;
 }
 
+
+#defense{
+    position:absolute;
+    top: 250px;
+    left: 90px;
+	font-size: 1.2em;
+}
 
 #reduction{
     position:absolute;

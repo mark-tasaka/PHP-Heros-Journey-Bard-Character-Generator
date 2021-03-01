@@ -111,6 +111,19 @@
         $armourReduction = getArmour($armour)[1];
         $armourWeight = getArmour($armour)[2];
 
+        if(isset($_POST["theShield"]))
+        {
+            $shield = $_POST["theShield"];
+        }
+        
+        $shieldName = getShield($shield)[0];
+        
+        $shieldDefense = getShield($shield)[1];
+        $shieldWeight = getShield($shield)[2];
+
+        $defense = 10 + $shieldDefense + $finesseMod;
+
+
         $lineageReduction = lineageReduction($lineageNumber);
 
         $reduction = $armourReduction + $lineageReduction;
@@ -160,7 +173,7 @@
     if(isset($_POST['theCheckBoxRandomGear']) && $_POST['theCheckBoxRandomGear'] == 1) 
     {
         $gearArray = getRandomGear();
-
+/*
         $weaponCount = count($weaponArray);
         $hasSling = false;
         $hasSlingStaff = false;
@@ -186,8 +199,7 @@
                 array_push($gearArray, 24);
             }
 
-
-        }
+        }*/
 
     }
     else
@@ -328,6 +340,12 @@
         </span>
         
         
+       <span id="defense">
+           <?php
+                echo $defense;
+           ?>
+        </span>
+
        <span id="endurance">
            <?php
                 echo $endurance;
@@ -377,19 +395,6 @@
        <span id="armourName">
            <?php
                 echo $armourName;
-           /*
-           if($armourName == "")
-           {
-               echo $shieldName;
-           }
-           else if($shieldName == "")
-           {
-                echo $armourName;
-           }
-           else
-           {
-            echo $armourName . " & " . $shieldName;
-           }*/
            ?>
         </span>
 
@@ -402,6 +407,26 @@
         <span id="armourWeight">
            <?php
                 echo $armourWeight . ' lb';
+           ?>
+        </span>
+
+        
+              
+       <span id="shieldName">
+           <?php
+                echo $shieldName;
+           ?>
+        </span>
+
+        <span id="shieldDefense">
+           <?php
+                echo '+' . $shieldDefense;
+           ?>
+        </span>
+        
+        <span id="shieldWeight">
+           <?php
+                echo $shieldWeight . ' lb';
            ?>
         </span>
 

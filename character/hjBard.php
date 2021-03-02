@@ -74,6 +74,10 @@
         
         } 
 
+        $level = levelLimit($lineageNumber, $level);
+
+        $lineageLevelLimit = levelLimitMessage($lineageNumber);
+
         $abilityScoreArray = array();
         $abilityScoreArray = getAbilityScores($lineageNumber);
 
@@ -90,6 +94,8 @@
         $insightMod = getAbilityScoreModString($insight);
         $bearingMod = getAbilityScoreModString($bearing);
         $wealMod = getAbilityScoreModString($weal);
+
+        $xpBonus = getXPBonus($bearing);
 
 
         $xpNextLevel = getXPNextLevel ($level);
@@ -297,6 +303,8 @@
            echo $wealMod;
            ?></span>
 
+
+
        <span id="lineage">
        <?php
        echo $lineage;
@@ -388,6 +396,18 @@
         </span>
        
        
+        <span id="archetype">
+           <?php
+                echo '<br/>' . $xpBonus;
+           ?>
+        </span>
+
+        
+    <span id="lineageAbilities">
+       <?php
+       echo '<br/>' . $lineageLevelLimit;
+       ?>
+       </span>
 
 
 

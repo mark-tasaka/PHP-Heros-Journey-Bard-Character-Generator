@@ -54,4 +54,42 @@ function lineageReduction($lineage)
 
 }
 
+
+function levelLimit($lineage, $level)
+{
+    if($lineage == "2" && $level > 4)
+    {
+        $level = 4;
+    }
+
+    if($lineage == "1" || $lineage == "3" || $lineage == "5")
+    {
+        if($level > 7)
+        {
+            $level = 7;
+        }
+    }
+
+    return $level;
+
+}
+
+function levelLimitMessage($lineage)
+{
+    if($lineage == "2")
+    {
+        $message = "Level Limit: 4";
+    }
+    else if($lineage == "1" || $lineage == "3" || $lineage == "5")
+    {
+        $message = "Level Limit: 7";
+    }
+    else
+    {
+        $message = " ";
+    }
+
+    return $message;
+}
+
 ?>

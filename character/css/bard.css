@@ -165,6 +165,24 @@ body{
     width: 490px;
 }
 
+
+#archetype{
+    position:absolute;
+    top: 805px;
+    left: 700px;
+    font-size: 0.65em;
+    width: 250px;
+}
+
+#lineageAbilities{
+    position:absolute;
+    top: 805px;
+    left: 420px;
+    font-size: 0.65em;
+    width: 250px;
+}
+
+
 #abilityScoreGeneration{
     position:absolute;
     top: 1145px;

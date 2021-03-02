@@ -103,5 +103,17 @@ function getSavingThrow($level)
 
 }
 
+function getXPBonus($abilityScore)
+{
+    $bonus = "";
+
+    if($abilityScore > 14)
+    {
+        $bonus = "+5% bonus to Experience Points";
+    }
+
+    return $bonus;
+}
+
 
 ?>

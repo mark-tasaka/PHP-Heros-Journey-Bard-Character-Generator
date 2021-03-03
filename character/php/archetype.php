@@ -93,6 +93,17 @@ function getAttackBonus($level)
     return $bonus;
 }
 
+function minimumClassScore($score)
+{
+    if($score < 8)
+    {
+        $score = 8;
+    }
+
+    return $score;
+}
+
+
 
 function getSavingThrow($level)
 {
@@ -113,6 +124,78 @@ function getXPBonus($abilityScore)
     }
 
     return $bonus;
+}
+
+function bardSaveMessage()
+{
+    $message = "<span class='archetypeBold'>Saving Throw:</span> Advantage on saving throws to resist magic spells or the effects of magic items.<br/><br/>";
+
+    return $message;
+}
+
+
+function bardAbilityCharmer($score)
+{
+    $message = "";
+
+    if($score >= 15)
+    {
+        $message = "<span class='archetypeBold'>Charmer:</span> The target(s) suffer disadvantage of saving throws when the Bard casts the <span class='archetypeBold'>Breathed in Siver</span> spell.<br/><br/>";
+    }
+
+    return $message;
+}
+
+function bardAbilityInspire($score)
+{
+    $message = "";
+
+    if($score >= 13)
+    {
+        $message = "<span class='archetypeBold'>Inspiring Performer:</span> Through the Bard's performance, allies within 60' receive +2 on attacks rolls and saving throws.<br/><br/>";
+    }
+
+    return $message;
+}
+
+
+function bardAbilityThief($score, $level)
+{
+    $message = "";
+
+    if($score >= 15 && $level >= 4)
+    {
+        $message = "<span class='archetypeBold'>Bardic Thievery:</span> Thievery abilities of a Burglar at 3 levels lower than the Bard's level.<br/><br/>";
+    }
+
+    return $message;
+}
+
+
+function lineageBardLore($level)
+{
+    if($level == "1" || $level == "2")
+    {
+        $lore = "<span class='archetypeBold'>Lore: 1</span><br/><br/>";
+    }
+    else if($level == "3" || $level == "4")
+    {
+        $lore = "<span class='archetypeBold'>Lore: 2</span><br/><br/>";
+    }
+    else if($level == "5" || $level == "6")
+    {
+        $lore = "<span class='archetypeBold'>Lore: 3</span><br/><br/>";
+    }
+    else if($level == "7" || $level == "8")
+    {
+        $lore = "<span class='archetypeBold'>Lore: 4</span><br/><br/>";
+    }
+    else
+    {
+        $lore = "<span class='archetypeBold'>Lore: 5</span><br/><br/>";
+    }
+
+    return $lore;
 }
 
 

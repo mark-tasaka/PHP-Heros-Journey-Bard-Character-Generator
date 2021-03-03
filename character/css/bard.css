@@ -112,15 +112,46 @@ body{
 
 #weaponsList{
     position:absolute;
-    top: 900px;
-    left: 365px;
+    top: 275px;
+    left: 430px;
 	font-size: 0.65em;
 }
 
+#weaponsList6{
+    position:absolute;
+    top: 275px;
+    left: 605px;
+	font-size: 0.65em;
+}
+
+
 #weaponsList2{
     position:absolute;
-    top: 900px;
-    left: 585px;
+    top: 275px;
+    left: 670px;
+	font-size: 0.65em;
+}
+
+
+#weaponsList3{
+    position:absolute;
+    top: 275px;
+    left: 740px;
+	font-size: 0.65em;
+}
+
+
+#weaponsList4{
+    position:absolute;
+    top: 275px;
+    left: 800px;
+	font-size: 0.65em;
+}
+
+#weaponsList5{
+    position:absolute;
+    top: 275px;
+    left: 905px;
 	font-size: 0.65em;
 }
 
@@ -168,20 +199,30 @@ body{
 
 #archetype{
     position:absolute;
-    top: 805px;
+    top: 815px;
     left: 700px;
     font-size: 0.65em;
-    width: 250px;
+    width: 230px;
+    font-weight: normal;
 }
+
+#archetype>.archetypeBold{
+    font-weight: bold;
+}
+
 
 #lineageAbilities{
     position:absolute;
-    top: 805px;
-    left: 420px;
+    top: 835px;
+    left: 412px;
     font-size: 0.65em;
-    width: 250px;
+    width: 240px;
+    font-weight: normal;
 }
 
+#lineageAbilities>.lineageBold{
+    font-weight: bold;
+}
 
 #abilityScoreGeneration{
     position:absolute;

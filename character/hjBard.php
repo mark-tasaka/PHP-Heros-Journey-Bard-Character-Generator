@@ -76,7 +76,14 @@
 
         $level = levelLimit($lineageNumber, $level);
 
+        $lineageAbilities = lineageAbilities($lineageNumber);
+
         $lineageLevelLimit = levelLimitMessage($lineageNumber);
+
+        $lineageDefenseBonus = lineageDefenseBonus($lineageNumber);
+
+        $bardLore = lineageBardLore($level);
+
 
         $abilityScoreArray = array();
         $abilityScoreArray = getAbilityScores($lineageNumber);
@@ -85,7 +92,12 @@
         $finesse = $abilityScoreArray[1];
         $resolve = $abilityScoreArray[2];
         $insight = $abilityScoreArray[3];
+        
+        $insight = minimumClassScore($insight);
+        
         $bearing = $abilityScoreArray[4];
+        $bearing = minimumClassScore($bearing);
+     
         $weal = $abilityScoreArray[5];
 
         $mightMod = getAbilityScoreModString($might);
@@ -96,6 +108,10 @@
         $wealMod = getAbilityScoreModString($weal);
 
         $xpBonus = getXPBonus($bearing);
+        $saveMessage = bardSaveMessage();
+        $bardCharmer = bardAbilityCharmer($bearing);
+        $bardPerformer = bardAbilityInspire($finesse);
+        $bardThievery = bardAbilityThief($finesse, $level);
 
 
         $xpNextLevel = getXPNextLevel ($level);
@@ -127,7 +143,7 @@
         $shieldDefense = getShield($shield)[1];
         $shieldWeight = getShield($shield)[2];
 
-        $defense = 10 + $shieldDefense + $finesseMod;
+        $defense = 10 + $shieldDefense + $finesseMod + $lineageDefenseBonus;
 
 
         $lineageReduction = lineageReduction($lineageNumber);
@@ -137,11 +153,7 @@
 
 
         $weaponArray = array();
-        $weaponNames = array();
-        $weaponDamage = array();
     
-    
-
     //For Random Select gear
     if(isset($_POST['thecheckBoxRandomWeaponsV3']) && $_POST['thecheckBoxRandomWeaponsV3'] == 1) 
     {
@@ -160,14 +172,52 @@
     }
 
     
+    $weaponNames = array();
+    $weaponDamage = array();
+    $weaponRange = array();
+    $weaponTrait = array();
+    $weaponWeight = array();
+    $weaponToHit = array();
+
+    //weapon name
     foreach($weaponArray as $select)
     {
         array_push($weaponNames, getWeapon($select)[0]);
     }
+    
+    //weapon to-hit
+    foreach($weaponArray as $select)
+    {
+        $elementWeapon = 0;
+        $toHitWeapon = weaponAttackBonus(getWeapon($select), $attackBonus, $mightMod, $finesseMod);
         
+        array_push($weaponToHit, $toHitWeapon);
+
+        ++$elementWeapon;
+    }
+        
+    //weapon damage
     foreach($weaponArray as $select)
     {
         array_push($weaponDamage, getWeapon($select)[1]);
+    }
+        
+    //weapon range
+    foreach($weaponArray as $select)
+    {
+        array_push($weaponRange, getWeapon($select)[2]);
+    } 
+
+    //weapon trait
+    foreach($weaponArray as $select)
+    {
+        array_push($weaponTrait, getWeapon($select)[3]);
+    }
+
+    //weapon weight
+    foreach($weaponArray as $select)
+    {
+        array_push($weaponWeight, getWeapon($select)[4]);
     }
         
         $gearArray = array();
@@ -179,33 +229,51 @@
     if(isset($_POST['theCheckBoxRandomGear']) && $_POST['theCheckBoxRandomGear'] == 1) 
     {
         $gearArray = getRandomGear();
-/*
+
         $weaponCount = count($weaponArray);
-        $hasSling = false;
-        $hasSlingStaff = false;
+        $longBow = false;
+        $shortBow = false;
+        $heavyCrossbow = false;
+        $lightCrossbow = false;
 
         for($i = 0; $i < $weaponCount; ++$i)
         {
-            if($weaponArray[$i] == "18" && $hasSlingStaff == false)
+            if($weaponArray[$i] == "15" && $longBow == false)
             {
-                array_push($gearArray, 25);
+                array_push($gearArray, 51);
+                array_push($gearArray, 52);
                 
-                $hasSling = true;
+                $shortBow = true;
             }
-
-            if($weaponArray[$i] == "19" && $hasSling == false)
+            
+            if($weaponArray[$i] == "16" && $shortBow == false)
             {
-                array_push($gearArray, 25);
-
-                $hasSlingStaff = true;
+                array_push($gearArray, 51);
+                array_push($gearArray, 52);
+                
+                $longBow = true;
             }
 
-            if($weaponArray[$i] == "12")
+            if($weaponArray[$i] == "17" && $heavyCrossbow == false)
             {
-                array_push($gearArray, 24);
+                array_push($gearArray, 53);
+                
+                $lightCrossbow = true;
+            }
+            
+            if($weaponArray[$i] == "18" && $lightCrossbow == false)
+            {
+                array_push($gearArray, 53);
+                
+                $heavyCrossbow = true;
             }
 
-        }*/
+            if($weaponArray[$i] == "19")
+            {
+                array_push($gearArray, 54);
+            }
+
+        }
 
     }
     else
@@ -319,11 +387,6 @@
        </span>
        
        
-
-
-
-
-
        
        <span id="class">Bard</span>
        
@@ -396,16 +459,22 @@
         </span>
        
        
+
         <span id="archetype">
            <?php
-                echo '<br/>' . $xpBonus;
+                echo $bardLore;
+                echo $saveMessage;
+                echo $bardCharmer;
+                echo $bardPerformer;
+                echo $bardThievery;
+                echo $xpBonus;
            ?>
         </span>
 
         
     <span id="lineageAbilities">
        <?php
-       echo '<br/>' . $lineageLevelLimit;
+       echo $lineageAbilities .  '<br/><br/>' . $lineageLevelLimit;
        ?>
        </span>
 
@@ -487,7 +556,50 @@
            }
            ?>        
         </span>
+        
+
+       <span id="weaponsList3">
+           <?php
+           foreach($weaponRange as $theWeaponRange)
+           {
+               echo $theWeaponRange;
+               echo "<br/>";
+           }
+           ?>        
+        </span>
        
+        <span id="weaponsList4">
+           <?php
+           foreach($weaponTrait as $theWeaponTrait)
+           {
+               echo $theWeaponTrait;
+               echo "<br/>";
+           }
+           ?>        
+        </span>
+
+        <span id="weaponsList5">
+           <?php
+           foreach($weaponWeight as $theweaponWeight)
+           {
+               echo $theweaponWeight;
+               echo "<br/>";
+           }
+           ?>        
+        </span>
+
+        
+        <span id="weaponsList6">
+           <?php
+           foreach($weaponToHit as $theWeaponToHit)
+           {
+               echo $theWeaponToHit;
+               echo "<br/>";
+           }
+           ?>        
+        </span>
+
+
 
        <span id="gearList">
            <?php

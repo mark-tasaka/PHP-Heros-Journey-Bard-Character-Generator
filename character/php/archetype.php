@@ -65,11 +65,11 @@ function getAttackBonus($level)
 {
     $bonus = 0;
 
-    if($level >= 4 && $bonus <= 5)
+    if($level >= 4 && $level <= 5)
     {
         $bonus = 1;
     }
-    else if($level >= 6 && $bonus <= 7)
+    else if($level >= 6 && $level <= 7)
     {
         $bonus = 2;
     }
@@ -83,7 +83,7 @@ function getAttackBonus($level)
     }
     else if($level == 10)
     {
-        $bonus = 4;
+        $bonus = 5;
     }
     else
     {

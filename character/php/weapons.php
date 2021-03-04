@@ -58,31 +58,6 @@ function getRandomWeapons()
     return $weaponsHas;
 }
 
-    function weaponAttackBonus($input, $attackBonus, $mightMod, $finesseMod)
-    {
-        $toHit = $attackBonus;
-
-        if($input <= 0 && $input >=14)
-        {
-            $toHit += $mightMod;
-        }
-        else
-        {
-            $toHit += $finesseMod;
-        }
-
-        if($toHit <= 0)
-        {
-            $toHitString = '+' . strval($toHit);
-        }
-        else
-        {
-            $toHitString = strval($toHit);
-        }
-
-        return $toHitString;
-    }
-
 
 
 

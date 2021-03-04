@@ -224,6 +224,28 @@ body{
     font-weight: bold;
 }
 
+#apprenticeSpellCount{
+    position:absolute;
+    top: 713px;
+    left: 275px;
+}
+
+#apprenticeSpellKnown{
+    position:absolute;
+    top: 835px;
+    left: 70px;
+    font-size: 0.65em;
+    width: 280px;
+}
+
+#goldPieces{
+    position:absolute;
+    top: 1040px;
+    left: 70px;
+    font-size: 0.65em;
+
+}
+
 #abilityScoreGeneration{
     position:absolute;
     top: 1145px;

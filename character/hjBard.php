@@ -33,6 +33,8 @@
     include 'php/profession.php';
     include 'php/lineage.php';
     include 'php/archetype.php';
+    include 'php/spells.php';
+    include 'php/goldPieces.php';
     
 
         if(isset($_POST["theCharacterName"]))
@@ -150,8 +152,6 @@
 
         $reduction = $armourReduction + $lineageReduction;
 
-
-
         $weaponArray = array();
     
     //For Random Select gear
@@ -185,15 +185,25 @@
         array_push($weaponNames, getWeapon($select)[0]);
     }
     
+    $eachWeaponCount = 0;
+
     //weapon to-hit
     foreach($weaponArray as $select)
     {
-        $elementWeapon = 0;
-        $toHitWeapon = weaponAttackBonus(getWeapon($select), $attackBonus, $mightMod, $finesseMod);
-        
+        $eachWeapon = $weaponArray[$eachWeaponCount];
+
+        if($eachWeapon >= 0 && $eachWeapon <=14)
+        {
+            $toHitWeapon = $attackBonus + $mightMod;
+        }
+        else
+        {
+            $toHitWeapon = $attackBonus + $finesseMod;
+        }
         array_push($weaponToHit, $toHitWeapon);
 
-        ++$elementWeapon;
+        ++$eachWeaponCount;
+
     }
         
     //weapon damage
@@ -295,9 +305,23 @@
             array_push($gearNames, getGear($select)[0]);
         }
 
+
+        
+        if(isset($_POST["theGold"]))
+        {
+            $gold = $_POST["theGold"];
+        }
+        
+        $goldPieces = getGoldPieces($gold);
+
+
     $profession = getProfession($lineageNumber);
 
-    
+    $apprenticeSpellCount = apprenticeSpellsKnown($level, $lineageNumber);
+
+    $apprenticeSpellKnown = array();
+
+    $apprenticeSpellKnown = getApprenticeSpells($apprenticeSpellCount);
     
     ?>
 
@@ -385,18 +409,46 @@
            echo $gender;
            ?>
        </span>
+
+       
+       <span id="apprenticeSpellCount">
+           <?php
+
+           if($apprenticeSpellCount > 0)
+           {
+                echo $apprenticeSpellCount;
+           }
+           else
+           {
+               echo "";
+           }
+           ?>
+       </span>
+       
+       <span id="apprenticeSpellKnown">
+           <?php
+           $countStop = $apprenticeSpellCount;
+
+           for($m = 0; $m < $apprenticeSpellCount; ++$m)
+           {
+               if($m == 0)
+               {
+                   echo $apprenticeSpellKnown[$m];
+
+               }
+               else
+               {
+                   echo ", " . $apprenticeSpellKnown[$m];
+               }
+
+           }
+           ?>
+       </span>
        
        
        
        <span id="class">Bard</span>
        
-       <span id="armourClass"></span>
-
-       <span id="baseAC"></span>
-       
-       <span id="hitPoints"></span>
-
-       <span id="languages"></span>
 
        <span id="level">
            <?php
@@ -519,21 +571,7 @@
            ?>
         </span>
 
- 
-        
-        <span id="initiative">
-        </span>
-        
 
-
-        
-        <span id="melee"></span>
-        <span id="range"></span>
-        
-        <span id="meleeDamage"></span>
-        <span id="rangeDamage"></span>
-
-       
        
        <span id="weaponsList">
            <?php
@@ -593,8 +631,18 @@
            <?php
            foreach($weaponToHit as $theWeaponToHit)
            {
-               echo $theWeaponToHit;
-               echo "<br/>";
+               if ($theWeaponToHit >= 0)
+               {
+                echo '+' . $theWeaponToHit;
+                echo "<br/>";
+
+               }
+               else
+               {
+                echo '-' . $theWeaponToHit;
+                echo "<br/>";
+
+               }
            }
            ?>        
         </span>
@@ -628,6 +676,13 @@
            }
            ?>
        </span>
+       
+       <span id="goldPieces">
+            <?php
+           echo $goldPieces;;
+           ?>
+       </span>
+       
 
 
        <span id="profession">

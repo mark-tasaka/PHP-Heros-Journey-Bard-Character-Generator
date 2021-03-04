@@ -5,6 +5,11 @@ The Bard Character Generator generates a random Hero’s Journey character using
 
 
 
+Update 1.06: 2021-03-04
+
+Added a new file: spells.php.  Updates to hjBard.php, bard.css, archetype.php,  and weapons.php.  
+
+
 
 Update 1.05: 2021-03-03
 

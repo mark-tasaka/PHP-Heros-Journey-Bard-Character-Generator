@@ -4,6 +4,18 @@ The Bard Character Generator generates a random Hero’s Journey character using
 -------------------
 
 
+A live version of the Bard Character Generator is available at:
+
+https://www.oldschooladventures.org/hero/more/classes/bard/
+
+
+------------------
+
+
+Update 1.07: 2021-03-09
+
+A launch page for Bard Character Generator has been added.
+
 
 Update 1.06: 2021-03-04
 
